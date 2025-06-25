@@ -32,18 +32,22 @@ const QuestionFitnessLevel = ({ value, onChange }: QuestionFitnessLevelProps) =>
   return (
     <div className="text-center space-y-6">
       <div>
-        <h2 className="text-3xl font-bold text-gray-800 mb-2">Koks tavo fizinio pasirengimo lygis?</h2>
-        <p className="text-gray-600">Pasirink variantą, kuris geriausiai atspindi tavo dabartinę formą</p>
+        <h2 className="text-3xl font-bold mb-2" style={{ color: '#ffffff' }}>
+          Koks tavo fizinio pasirengimo lygis?
+        </h2>
+        <p style={{ color: '#DDE5EA' }}>
+          Pasirink variantą, kuris geriausiai atspindi tavo dabartinę formą
+        </p>
       </div>
 
       <div className="grid gap-4 mt-8">
         {levels.map((level) => (
           <Card
             key={level.id}
-            className={`cursor-pointer transition-all duration-200 hover:shadow-md ${
+            className={`cursor-pointer transition-all duration-200 hover:shadow-md border-2 rounded-xl ${
               value === level.id 
-                ? 'ring-2 ring-green-500 border-green-500 bg-green-50' 
-                : 'hover:border-green-200'
+                ? 'border-[#6BE0A5] bg-[#1a3a4a]' 
+                : 'border-gray-600 bg-[#1e3a52] hover:border-[#6BE0A5]'
             }`}
             onClick={() => onChange(level.id)}
           >
@@ -51,13 +55,20 @@ const QuestionFitnessLevel = ({ value, onChange }: QuestionFitnessLevelProps) =>
               <div className="flex items-center space-x-4">
                 <span className="text-3xl">{level.icon}</span>
                 <div className="text-left">
-                  <h3 className="font-semibold text-lg text-gray-800">{level.title}</h3>
-                  <p className="text-gray-600 text-sm">{level.description}</p>
+                  <h3 className="font-semibold text-lg" style={{ color: '#ffffff' }}>
+                    {level.title}
+                  </h3>
+                  <p className="text-sm" style={{ color: '#DDE5EA' }}>
+                    {level.description}
+                  </p>
                 </div>
                 {value === level.id && (
                   <div className="ml-auto">
-                    <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                      <span className="text-white text-sm">✓</span>
+                    <div 
+                      className="w-6 h-6 rounded-full flex items-center justify-center"
+                      style={{ backgroundColor: '#6BE0A5' }}
+                    >
+                      <span style={{ color: '#132736' }} className="text-sm font-bold">✓</span>
                     </div>
                   </div>
                 )}

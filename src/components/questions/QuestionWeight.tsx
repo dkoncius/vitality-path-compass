@@ -11,14 +11,22 @@ const QuestionWeight = ({ value, onChange }: QuestionWeightProps) => {
   return (
     <div className="text-center space-y-6">
       <div>
-        <h2 className="text-3xl font-bold text-gray-800 mb-2">Koks tavo svoris?</h2>
-        <p className="text-gray-600">Nurodytas svoris padės sukurti personalizuotą treniruočių planą</p>
+        <h2 className="text-3xl font-bold mb-2" style={{ color: '#ffffff' }}>
+          Koks tavo svoris?
+        </h2>
+        <p style={{ color: '#DDE5EA' }}>
+          Nurodytas svoris padės sukurti personalizuotą treniruočių planą
+        </p>
       </div>
 
       <div className="space-y-6">
         <div className="text-center">
-          <span className="text-6xl font-bold text-green-600">{value}</span>
-          <p className="text-lg text-gray-600 mt-2">kg</p>
+          <span className="text-6xl font-bold" style={{ color: '#6BE0A5' }}>
+            {value}
+          </span>
+          <p className="text-lg mt-2" style={{ color: '#DDE5EA' }}>
+            kg
+          </p>
         </div>
 
         <div className="px-8">
@@ -30,7 +38,7 @@ const QuestionWeight = ({ value, onChange }: QuestionWeightProps) => {
             step={1}
             className="w-full"
           />
-          <div className="flex justify-between text-sm text-gray-500 mt-2">
+          <div className="flex justify-between text-sm mt-2" style={{ color: '#DDE5EA' }}>
             <span>40 kg</span>
             <span>150 kg</span>
           </div>

@@ -87,28 +87,31 @@ const HealthPlanGenerator = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: '#132736' }}>
       <div className="w-full max-w-2xl">
         {/* Progress bar */}
         <div className="mb-8">
           <div className="flex justify-between items-center mb-2">
-            <span className="text-sm font-medium text-gray-600">
+            <span className="text-sm font-medium" style={{ color: '#DDE5EA' }}>
               Klausimas {currentStep + 1} iš {totalSteps}
             </span>
-            <span className="text-sm font-medium text-green-600">
+            <span className="text-sm font-medium" style={{ color: '#6BE0A5' }}>
               {Math.round(((currentStep + 1) / totalSteps) * 100)}%
             </span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
+          <div className="w-full bg-gray-700 rounded-full h-2">
             <div
-              className="bg-gradient-to-r from-green-500 to-emerald-500 h-2 rounded-full transition-all duration-500"
-              style={{ width: `${((currentStep + 1) / totalSteps) * 100}%` }}
+              className="h-2 rounded-full transition-all duration-500"
+              style={{ 
+                backgroundColor: '#6BE0A5',
+                width: `${((currentStep + 1) / totalSteps) * 100}%` 
+              }}
             />
           </div>
         </div>
 
         {/* Question Card */}
-        <Card className="shadow-lg border-0 bg-white/90 backdrop-blur-sm">
+        <Card className="shadow-lg border-0" style={{ backgroundColor: '#132736', borderRadius: '20px' }}>
           <CardContent className="p-8">
             <div className="min-h-[300px] flex flex-col justify-center">
               <div className="animate-fade-in">
@@ -122,7 +125,12 @@ const HealthPlanGenerator = () => {
                 variant="outline"
                 onClick={prevStep}
                 disabled={currentStep === 0}
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 border-2 rounded-xl"
+                style={{ 
+                  borderColor: '#6BE0A5',
+                  color: '#6BE0A5',
+                  backgroundColor: 'transparent'
+                }}
               >
                 <ArrowLeft className="w-4 h-4" />
                 Atgal
@@ -131,7 +139,11 @@ const HealthPlanGenerator = () => {
               <Button
                 onClick={nextStep}
                 disabled={!isStepComplete()}
-                className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600"
+                className="flex items-center gap-2 font-bold rounded-xl"
+                style={{ 
+                  backgroundColor: '#6BE0A5',
+                  color: '#132736'
+                }}
               >
                 {currentStep === totalSteps - 1 ? 'Gauti planą' : 'Toliau'}
                 <ArrowRight className="w-4 h-4" />

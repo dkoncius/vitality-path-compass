@@ -13,14 +13,20 @@ const QuestionFrequency = ({ value, onChange }: QuestionFrequencyProps) => {
   return (
     <div className="text-center space-y-6">
       <div>
-        <h2 className="text-3xl font-bold text-gray-800 mb-2">Kiek kartų per savaitę gali sportuoti?</h2>
-        <p className="text-gray-600">Pasirink realų skaičių, kurį galėtum išlaikyti ilgą laiką</p>
+        <h2 className="text-3xl font-bold mb-2" style={{ color: '#ffffff' }}>
+          Kiek kartų per savaitę gali sportuoti?
+        </h2>
+        <p style={{ color: '#DDE5EA' }}>
+          Pasirink realų skaičių, kurį galėtum išlaikyti ilgą laiką
+        </p>
       </div>
 
       <div className="space-y-6">
         <div className="text-center">
-          <span className="text-6xl font-bold text-green-600">{value}</span>
-          <p className="text-lg text-gray-600 mt-2">
+          <span className="text-6xl font-bold" style={{ color: '#6BE0A5' }}>
+            {value}
+          </span>
+          <p className="text-lg mt-2" style={{ color: '#DDE5EA' }}>
             {value === 1 ? 'kartą per savaitę' : `kartus per savaitę`}
           </p>
         </div>
@@ -32,18 +38,26 @@ const QuestionFrequency = ({ value, onChange }: QuestionFrequencyProps) => {
               variant={value === freq ? "default" : "outline"}
               size="lg"
               onClick={() => onChange(freq)}
-              className={`w-16 h-16 text-lg font-semibold ${
+              className={`w-16 h-16 text-lg font-semibold rounded-xl ${
                 value === freq 
-                  ? 'bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600' 
-                  : 'hover:border-green-300'
+                  ? 'font-bold' 
+                  : 'border-2'
               }`}
+              style={value === freq ? {
+                backgroundColor: '#6BE0A5',
+                color: '#132736'
+              } : {
+                borderColor: '#6BE0A5',
+                color: '#6BE0A5',
+                backgroundColor: 'transparent'
+              }}
             >
               {freq}
             </Button>
           ))}
         </div>
 
-        <div className="text-sm text-gray-500 mt-4">
+        <div className="text-sm mt-4" style={{ color: '#DDE5EA' }}>
           <p>💡 Patarimas: Geriau pradėti nuo mažesnio skaičiaus ir palaipsniui didinti</p>
         </div>
       </div>

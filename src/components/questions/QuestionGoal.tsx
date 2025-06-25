@@ -38,18 +38,22 @@ const QuestionGoal = ({ value, onChange }: QuestionGoalProps) => {
   return (
     <div className="text-center space-y-6">
       <div>
-        <h2 className="text-3xl font-bold text-gray-800 mb-2">Koks tavo pagrindinis tikslas?</h2>
-        <p className="text-gray-600">Pasirink tikslą, kurio nori pasiekti sportuodamas</p>
+        <h2 className="text-3xl font-bold mb-2" style={{ color: '#ffffff' }}>
+          Koks tavo pagrindinis tikslas?
+        </h2>
+        <p style={{ color: '#DDE5EA' }}>
+          Pasirink tikslą, kurio nori pasiekti sportuodamas
+        </p>
       </div>
 
       <div className="grid gap-4 mt-8">
         {goals.map((goal) => (
           <Card
             key={goal.id}
-            className={`cursor-pointer transition-all duration-200 hover:shadow-md ${
+            className={`cursor-pointer transition-all duration-200 hover:shadow-md border-2 rounded-xl ${
               value === goal.id 
-                ? 'ring-2 ring-green-500 border-green-500 bg-green-50' 
-                : 'hover:border-green-200'
+                ? 'border-[#6BE0A5] bg-[#1a3a4a]' 
+                : 'border-gray-600 bg-[#1e3a52] hover:border-[#6BE0A5]'
             }`}
             onClick={() => onChange(goal.id)}
           >
@@ -57,13 +61,20 @@ const QuestionGoal = ({ value, onChange }: QuestionGoalProps) => {
               <div className="flex items-center space-x-4">
                 <span className="text-3xl">{goal.icon}</span>
                 <div className="text-left">
-                  <h3 className="font-semibold text-lg text-gray-800">{goal.title}</h3>
-                  <p className="text-gray-600 text-sm">{goal.description}</p>
+                  <h3 className="font-semibold text-lg" style={{ color: '#ffffff' }}>
+                    {goal.title}
+                  </h3>
+                  <p className="text-sm" style={{ color: '#DDE5EA' }}>
+                    {goal.description}
+                  </p>
                 </div>
                 {value === goal.id && (
                   <div className="ml-auto">
-                    <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                      <span className="text-white text-sm">✓</span>
+                    <div 
+                      className="w-6 h-6 rounded-full flex items-center justify-center"
+                      style={{ backgroundColor: '#6BE0A5' }}
+                    >
+                      <span style={{ color: '#132736' }} className="text-sm font-bold">✓</span>
                     </div>
                   </div>
                 )}
